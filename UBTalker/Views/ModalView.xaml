@@ -1,0 +1,21 @@
+﻿<Page x:Class="UBTalker.Views.ModalView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:control="clr-namespace:UBTalker.Controls"
+      xmlns:local="clr-namespace:UBTalker.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1360"
+      Title="ModalView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="170" />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Text" Grid.Row="0" />
+        <control:GazeButton Grid.Row="1" Text="Go Back" GazeSelect="GazeButton_GazeSelect" />
+    </Grid>
+</Page>

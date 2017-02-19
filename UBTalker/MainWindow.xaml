@@ -1,0 +1,22 @@
+﻿<Window x:Class="UBTalker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:eyeX="clr-namespace:EyeXFramework;assembly=EyeXFramework"
+        xmlns:control="clr-namespace:UBTalker.Controls"
+        xmlns:local="clr-namespace:UBTalker"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="UB Talker" Height="768" Width="1360">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="170" />
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" x:Name="CurrentView" NavigationUIVisibility="Hidden" />
+
+        <control:GazeButton Grid.Row="1" Text="Call Light" GazeSelect="OnCallLightSelected"></control:GazeButton>
+    </Grid>
+</Window>
