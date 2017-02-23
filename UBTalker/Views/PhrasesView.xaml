@@ -10,6 +10,12 @@
       Title="PhrasesView">
 
     <Grid>
-        <control:PagedGazeMenu x:Name="PagedMenu" GazeSelect="PagedGazeMenu_GazeSelect" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <control:GazeButton x:Name="GoBack" Grid.Row="0" GazeSelect="GoBack_GazeSelect" Text="Go Back" />
+        <control:PagedGazeMenu x:Name="PagedMenu" Grid.Row="1" GazeSelect="PagedGazeMenu_GazeSelect" />
     </Grid>
 </Page>

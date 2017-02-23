@@ -7,7 +7,6 @@ D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\bin\Release\Microsoft.Practic
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\bin\Release\Microsoft.Practices.Unity.Configuration.dll
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\bin\Release\Microsoft.Practices.Unity.dll
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.dll
-D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\bin\Release\System.Windows.Interactivity.dll
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\bin\Release\Tobii.EyeX.Client.Net20.dll
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\bin\Release\EyeXFramework.pdb
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\bin\Release\EyeXFramework.xml
@@ -33,3 +32,11 @@ D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\UBTalker.Properti
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\UBTalker.csproj.GenerateResource.Cache
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\UBTalker.exe
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\UBTalker.pdb
+D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\Controls\PagedGazeMenu.g.cs
+D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\Views\HubView.g.cs
+D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\Views\KeyboardView.g.cs
+D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\Views\ModalView.g.cs
+D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\Controls\PagedGazeMenu.baml
+D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\Views\HubView.baml
+D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\Views\KeyboardView.baml
+D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\obj\Release\Views\ModalView.baml

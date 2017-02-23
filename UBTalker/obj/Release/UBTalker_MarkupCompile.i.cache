@@ -10,11 +10,11 @@ none
 false
 TRACE
 D:\Workspaces\UB Talker\UBTalker\UBTalker\UBTalker\App.xaml
-3-208050947
+7-1944505747
 1761281715
-161801183662
-71-1115833329
-Controls\GazeButton.xaml;MainWindow.xaml;Views\PhrasesView.xaml;
+20-498326732
+701465787530
+Controls\GazeButton.xaml;Controls\PagedGazeMenu.xaml;MainWindow.xaml;Views\HubView.xaml;Views\KeyboardView.xaml;Views\ModalView.xaml;Views\PhrasesView.xaml;
 
 True
 

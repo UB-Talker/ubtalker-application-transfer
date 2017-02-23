@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using UBTalker.Controls;
+using UBTalker.Services;
 
 namespace UBTalker.Views
 {
     /// <summary>
     /// Interaction logic for HubView.xaml
     /// </summary>
-    public partial class HubView : Page
+    public partial class HubView : Page, IKeyboardReceiver
     {
         private readonly IMainWindow _parent = ServiceLocator.Current.GetInstance<IMainWindow>();
+        private readonly IPhraseService _phraseService = ServiceLocator.Current.GetInstance<IPhraseService>();
 
         public HubView()
         {
@@ -20,12 +22,19 @@ namespace UBTalker.Views
             Menu.Options = GetOptions();
         }
 
+        public void OnKeyboardCancel() { }
+
+        public void OnKeyboardInput(string message)
+        {
+            _parent.ShowModal(message);
+        }
+
         private List<GazeButtonData[]> GetOptions()
         {
             List<GazeButtonData[]> options = new List<GazeButtonData[]>();
             options.Add(new GazeButtonData[] {
                 new GazeButtonData("Phrases", "/Views/PhrasesView.xaml"),
-                new GazeButtonData(""),
+                new GazeButtonData("Keyboard", "cmd:keyboard"),
                 new GazeButtonData(""),
                 new GazeButtonData("")
             });
@@ -39,7 +48,13 @@ namespace UBTalker.Views
                 var button = e.OriginalSource as GazeButton;
 
                 if (button.Link != null)
-                    _parent.SetPage(new Uri(button.Link, UriKind.RelativeOrAbsolute));
+                {
+                    if (button.Link == "cmd:keyboard")
+                        _parent.ShowKeyboard();
+                    else
+                        _parent.SetPage(new Uri(button.Link, UriKind.RelativeOrAbsolute));
+                }
+                
             }
         }
     }

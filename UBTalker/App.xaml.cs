@@ -39,13 +39,13 @@ namespace UBTalker
             RegisterServices();
 
             // Set up Microsoft Service Locator to use Unity
-            // Service instancs can be requested using ServiceLocator.Current.GetInstance<Type>()
+            // Service instances can be requested using ServiceLocator.Current.GetInstance<Type>()
             ServiceLocator.SetLocatorProvider(() => new UnityServiceLocator(_container));
 
             // Run main window and open initial page
             var mainWindow = _container.Resolve<MainWindow>();
             mainWindow.Show();
-            mainWindow.SetPage(new Uri("Views/PhrasesView.xaml", UriKind.Relative));
+            mainWindow.SetPage(new Uri("Views/HubView.xaml", UriKind.Relative));
 
 #if DEBUG
             mainWindow.Title += " (DEBUG MODE) - Be sure to build in release mode for use";

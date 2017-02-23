@@ -11,11 +11,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
             <RowDefinition Height="170" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="Text" Grid.Row="0" />
-        <control:GazeButton Grid.Row="1" Text="Go Back" GazeSelect="GazeButton_GazeSelect" />
+        <TextBlock x:Name="Text" Grid.Row="1" FontSize="48" />
+        <control:GazeButton Grid.Row="0" Text="Go Back" GazeSelect="GazeButton_GazeSelect" />
     </Grid>
 </Page>

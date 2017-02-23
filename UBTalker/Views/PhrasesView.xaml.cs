@@ -36,5 +36,10 @@ namespace UBTalker.Views
                 _phraseService.Speak(button.Text);
             }
         }
+
+        private void GoBack_GazeSelect(object sender, RoutedEventArgs e)
+        {
+            _parent.GoBack();
+        }
     }
 }

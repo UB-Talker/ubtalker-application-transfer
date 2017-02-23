@@ -15,7 +15,7 @@
             <RowDefinition Height="170" />
         </Grid.RowDefinitions>
 
-        <Frame Grid.Row="0" x:Name="CurrentView" NavigationUIVisibility="Hidden" />
+        <Frame Grid.Row="0" x:Name="CurrentView" NavigationUIVisibility="Hidden" Navigated="CurrentView_Navigated"/>
 
         <control:GazeButton Grid.Row="1" Text="Call Light" GazeSelect="OnCallLightSelected"></control:GazeButton>
     </Grid>

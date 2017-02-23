@@ -1,6 +1,8 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 using UBTalker.Services;
 
 namespace UBTalker
@@ -25,6 +27,9 @@ namespace UBTalker
     {
         private readonly ICallLightService _callLightService = ServiceLocator.Current.GetInstance<ICallLightService>();
         private string currentModalMessage;
+        private string lastKeyboardResult;
+        private bool returningFromKeyboard;
+        private bool returningFromModal;
 
         public MainWindow()
         {
@@ -51,6 +56,7 @@ namespace UBTalker
         public void ShowModal(string message)
         {
             currentModalMessage = message;
+            returningFromModal = true;
             CurrentView.Navigate(new Uri("Views/ModalView.xaml", UriKind.Relative));
         }
 
@@ -70,24 +76,38 @@ namespace UBTalker
 
         public void OnKeyboardInput(string message)
         {
-            // Go back to the previous page and propagate the result, if possible
-            CurrentView.GoBack();
-            if (CurrentView.Content is IKeyboardReceiver)
-            {
-                (CurrentView.Content as IKeyboardReceiver).OnKeyboardInput(message);
-            }
+            lastKeyboardResult = message;
+            returningFromKeyboard = true;
+            GoBack();
         }
 
         public void OnKeyboardCancel()
         {
-            // Go back to the previous page and propagate the result, if possible 
-            CurrentView.GoBack();
-            if (CurrentView.Content is IKeyboardReceiver)
-            {
-                (CurrentView.Content as IKeyboardReceiver).OnKeyboardCancel();
-            }
+            lastKeyboardResult = null;
+            returningFromKeyboard = true;
+            GoBack();
         }
 
         #endregion
+
+        private void CurrentView_Navigated(object sender, NavigationEventArgs e)
+        {
+            if (returningFromKeyboard)
+            {
+                returningFromKeyboard = false;
+
+                if (CurrentView.Content is IKeyboardReceiver)
+                {
+                    if (lastKeyboardResult != null)
+                        (CurrentView.Content as IKeyboardReceiver).OnKeyboardInput(lastKeyboardResult);
+                    else
+                        (CurrentView.Content as IKeyboardReceiver).OnKeyboardCancel();
+                }
+            }
+            else if (returningFromModal)
+            {
+                returningFromModal = false;
+            }
+        }
     }
 }
