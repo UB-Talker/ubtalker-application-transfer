@@ -11,11 +11,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="100" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <control:GazeButton Grid.Row="0" GazeSelect="GazeButton_GazeSelect_Cancel" Text="Cancel" />
-        <control:GazeButton Grid.Row="1" GazeSelect="GazeButton_GazeSelect_OK" Text="Send back &quot;OK&quot;" />
+        <TextBlock x:Name="CurrentText" Grid.Row="0" FontSize="28" />
+        <control:PagedGazeMenu x:Name="PagedMenu" Grid.Row="1" GazeSelect="PagedGazeMenu_GazeSelect" />
     </Grid>
 </Page>
