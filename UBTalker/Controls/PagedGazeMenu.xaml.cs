@@ -36,6 +36,10 @@ namespace UBTalker.Controls
             Options = new List<GazeButtonData[]>();
         }
 
+        /// <summary>
+        /// Force the current selection of options onto the current view
+        /// Also performs error-checking and wraparound for index
+        /// </summary>
         private void Refresh()
         {
             if (_index >= Options.Count)

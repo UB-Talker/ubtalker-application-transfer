@@ -1,7 +1,6 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Navigation;
 using UBTalker.Services;
 
@@ -26,19 +25,15 @@ namespace UBTalker
     public partial class MainWindow : Window, IMainWindow
     {
         private readonly ICallLightService _callLightService = ServiceLocator.Current.GetInstance<ICallLightService>();
-        private string currentModalMessage;
-        private string lastKeyboardResult;
-        private bool returningFromKeyboard;
-        private bool returningFromModal;
+
+        private string currentModalMessage; // Modal view can request this
+        private string lastKeyboardResult;  // Needs to be stored because keyboard result must be sent after frame loads, GoBack() is async
+        private bool returningFromKeyboard; // Check for when the frame loads content, if the keyboard callback needs to be called
+        private bool returningFromModal;    // Currently unused
 
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void OnCallLightSelected(object sender, RoutedEventArgs e)
-        {
-            _callLightService.ActivateCallLight();
         }
 
         #region IMainWindow Implementation
@@ -90,8 +85,28 @@ namespace UBTalker
 
         #endregion
 
+        #region Internal Events
+
+        /// <summary>
+        /// Call light selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnCallLightSelected(object sender, RoutedEventArgs e)
+        {
+            _callLightService.ActivateCallLight();
+        }
+
+        /// <summary>
+        /// Called when the frame CurrentView finishes loading. At this point, events and callbacks on the
+        /// child view can be properly called because it's fully loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CurrentView_Navigated(object sender, NavigationEventArgs e)
         {
+            // Current view is now loaded, if returning from keyboard,
+            // manually propagage the keyboard result
             if (returningFromKeyboard)
             {
                 returningFromKeyboard = false;
@@ -104,10 +119,13 @@ namespace UBTalker
                         (CurrentView.Content as IKeyboardReceiver).OnKeyboardCancel();
                 }
             }
+            // Currently unused, modal information passing would go here
             else if (returningFromModal)
             {
                 returningFromModal = false;
             }
         }
+
+        #endregion
     }
 }
