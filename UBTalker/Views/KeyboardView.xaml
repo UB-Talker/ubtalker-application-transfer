@@ -15,7 +15,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="CurrentText" Grid.Row="0" FontSize="28" />
+        <TextBlock x:Name="CurrentText" Grid.Row="0" FontSize="48" />
         <control:PagedGazeMenu x:Name="PagedMenu" Grid.Row="1" GazeSelect="PagedGazeMenu_GazeSelect" />
     </Grid>
 </Page>
