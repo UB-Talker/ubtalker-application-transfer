@@ -27,6 +27,7 @@ namespace UBTalker.Views
         public void OnKeyboardInput(string message)
         {
             _parent.ShowModal(message);
+            _phraseService.Speak(message);
         }
 
         private List<GazeButtonData[]> GetOptions()

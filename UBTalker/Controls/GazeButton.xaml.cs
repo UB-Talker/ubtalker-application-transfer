@@ -127,7 +127,8 @@ namespace UBTalker.Controls
 
         private void OnHasGazeChanged_Focus(object sender, RoutedEventArgs e)
         {
-            if ((e.Source as Grid).GetHasGaze())
+            var source = e.Source as Grid;
+            if (source != null && source.GetHasGaze())
             {
                 RaiseEvent(new RoutedEventArgs(GazeButton.GazeFocusEvent));
             }
@@ -135,7 +136,8 @@ namespace UBTalker.Controls
 
         private void OnHasGazeChanged_Select(object sender, RoutedEventArgs e)
         {
-            if ((e.Source as Label).GetHasGaze())
+            var source = e.Source as Label;
+            if (source != null && source.GetHasGaze())
             {
                 RaiseEvent(new RoutedEventArgs(GazeButton.GazeSelectionEvent));
             }

@@ -72,11 +72,11 @@ namespace UBTalker.Services
             try
             {
                 // If not connected to device, attempt to connect
-                if (!_serialPort.IsOpen)
+                if (_serialPort == null || !_serialPort.IsOpen)
                     Connect();
 
                 // If still not connected, assume it failed
-                if (!_serialPort.IsOpen)
+                if (_serialPort == null || !_serialPort.IsOpen)
                     return;
 
                 // Simulate button press
