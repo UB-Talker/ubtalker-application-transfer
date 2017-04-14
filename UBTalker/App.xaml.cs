@@ -69,6 +69,7 @@ namespace UBTalker
         /// </summary>
         private void RegisterServices()
         {
+            RegisterSingleton<IDataStoreService, DataStoreService>();
             RegisterSingleton<IPhraseService, PhraseService>();
             RegisterSingleton<ICallLightService, CallLightService>();
         }

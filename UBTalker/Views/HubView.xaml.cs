@@ -36,7 +36,7 @@ namespace UBTalker.Views
             options.Add(new GazeButtonData[] {
                 new GazeButtonData("Phrases", "/Views/PhrasesView.xaml"),
                 new GazeButtonData("Keyboard", "cmd:keyboard"),
-                new GazeButtonData(""),
+                new GazeButtonData("Email", "/Views/EmailView.xaml"),
                 new GazeButtonData("")
             });
             return options;
