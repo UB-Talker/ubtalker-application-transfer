@@ -100,6 +100,9 @@
     <Compile Include="Views\ModalView.xaml.cs">
       <DependentUpon>ModalView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RoomControlView.xaml.cs">
+      <DependentUpon>RoomControlView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PhrasesView.xaml.cs">
       <DependentUpon>PhrasesView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ModalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RoomControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
