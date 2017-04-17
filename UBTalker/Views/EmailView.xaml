@@ -1,0 +1,21 @@
+﻿<Page x:Class="UBTalker.Views.EmailView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:control="clr-namespace:UBTalker.Controls"
+      xmlns:local="clr-namespace:UBTalker.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1360"
+      Title="EmailView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <control:GazeButton x:Name="GoBack" Grid.Row="0" GazeSelect="GoBack_GazeSelect" Text="Go Back" />
+        <control:PagedGazeMenu x:Name="PagedMenu" Grid.Row="1" GazeSelect="PagedMenu_GazeSelect" />
+    </Grid>
+</Page>
