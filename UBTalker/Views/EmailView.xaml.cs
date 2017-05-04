@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using UBTalker.Controls;
 using UBTalker.Services;
+using System.Net.Mail;
 
 namespace UBTalker.Views
 {
@@ -25,7 +26,7 @@ namespace UBTalker.Views
         } };
 
         private List<GazeButtonData[]> ContactsMenu = new List<GazeButtonData[]> { new GazeButtonData[] {
-            new GazeButtonData("Jeremy", "mailto:jmpetrot@buffalo.edu"),
+            new GazeButtonData("Jordan", "mailto:jrhoeber@buffalo.edu"),
             new GazeButtonData(""),
             new GazeButtonData(""),
             new GazeButtonData("")
@@ -45,6 +46,18 @@ namespace UBTalker.Views
         {
             string email = _store.Get(CURRENT_EMAIL_KEY) as string;
             System.Console.WriteLine("Send email to " + email + ", with message: " + message);
+            MailMessage mail = new MailMessage("cse453alsgroup@gmail.com", email);
+            mail.Subject = "New Email from Tim!";
+            mail.Body = message;
+
+            SmtpClient client = new SmtpClient();
+            client.Port = 25;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Host = "smtp.gmail.com";
+            client.Credentials = new System.Net.NetworkCredential("cse453alsgroup@gmail.com", "alshomeautomation");
+            client.EnableSsl = true;
+            client.Send(mail);
             PagedMenu.Options = MainMenu;
         }
 

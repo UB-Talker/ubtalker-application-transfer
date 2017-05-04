@@ -37,7 +37,7 @@ namespace UBTalker.Views
                 new GazeButtonData("Phrases", "/Views/PhrasesView.xaml"),
                 new GazeButtonData("Keyboard", "cmd:keyboard"),
                 new GazeButtonData("Email", "/Views/EmailView.xaml"),
-                new GazeButtonData("")
+                new GazeButtonData("Room Control", "/Views/RoomControlView.xaml")
             });
             return options;
         }
