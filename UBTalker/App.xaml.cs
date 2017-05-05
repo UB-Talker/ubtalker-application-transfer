@@ -31,7 +31,7 @@ namespace UBTalker
 
             // Start EyeXHost
             _eyeXHost = new WpfEyeXHost();
-            //_eyeXHost.Start();
+            _eyeXHost.Start();
 
             // Setup Unity Container
             _container = new UnityContainer();
