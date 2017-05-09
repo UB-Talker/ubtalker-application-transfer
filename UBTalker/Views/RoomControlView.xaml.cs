@@ -15,6 +15,7 @@ namespace UBTalker.Views
     {
         private readonly IMainWindow _parent = ServiceLocator.Current.GetInstance<IMainWindow>();
         private readonly IDataStoreService _store = ServiceLocator.Current.GetInstance<IDataStoreService>();
+        private readonly IClientService _client = ServiceLocator.Current.GetInstance<IClientService>();
 
         private List<GazeButtonData[]> MainMenu = new List<GazeButtonData[]> { new GazeButtonData[] {
             new GazeButtonData("TV Control", "cmd:tv_control"),
@@ -28,7 +29,7 @@ namespace UBTalker.Views
         {
             InitializeComponent();
             TV_Menu = new List<GazeButtonData[]> { new GazeButtonData[] {
-                new GazeButtonData("On/Off", "cmd:on_off"),
+                new GazeButtonData("On/Off", "cmd:tv_on_off"),
                 new GazeButtonData("Channel Up", "cmd:channel_up"),
                 new GazeButtonData("Channel Down", "cmd:channel_down"),
                 new GazeButtonData("Volume Up", "cmd:volume_up")
@@ -56,24 +57,31 @@ namespace UBTalker.Views
                             PagedMenu.Options = TV_Menu;
                             break;
                         case "cmd:fan_on_off":
+                            _client.StartClient("/home/pi/Desktop/On_Startup/fanToggle");
                             System.Console.WriteLine("Selected " + button.Text + ", link = " + button.Link);
                             break;
                         case "cmd:light_on_off":
+                            _client.StartClient("/home/pi/Desktop/On_Startup/lightToggle");
                             System.Console.WriteLine("Selected " + button.Text + ", link = " + button.Link);
                             break;
-                        case "cmd:on_off":
+                        case "cmd:tv_on_off":
+                            _client.StartClient("irsend SEND_ONCE samsung KEY_POWER");
                             System.Console.WriteLine("Selected " + button.Text + ", link = " + button.Link);
                             break;
                         case "cmd:channel_up":
+                            _client.StartClient("irsend SEND_ONCE samsung KEY_CHANNEL_UP");
                             System.Console.WriteLine("Selected " + button.Text + ", link = " + button.Link);
                             break;
                         case "cmd:channel_down":
+                            _client.StartClient("irsend SEND_ONCE samsung KEY_CHANNEL_DOWN");
                             System.Console.WriteLine("Selected " + button.Text + ", link = " + button.Link);
                             break;
                         case "cmd:volume_up":
+                            _client.StartClient("irsend SEND_ONCE samsung KEY_VOLUMNE_UP");
                             System.Console.WriteLine("Selected " + button.Text + ", link = " + button.Link);
                             break;
                         case "cmd:volume_down":
+                            _client.StartClient("irsend SEND_ONCE samsung KEY_VOLUMNE_DOWN");
                             System.Console.WriteLine("Selected " + button.Text + ", link = " + button.Link);
                             break;
                         default:
