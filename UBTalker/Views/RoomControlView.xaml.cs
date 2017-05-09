@@ -1,6 +1,5 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using UBTalker.Controls;
@@ -14,7 +13,6 @@ namespace UBTalker.Views
     public partial class RoomControlView : Page
     {
         private readonly IMainWindow _parent = ServiceLocator.Current.GetInstance<IMainWindow>();
-        private readonly IDataStoreService _store = ServiceLocator.Current.GetInstance<IDataStoreService>();
         private readonly IClientService _client = ServiceLocator.Current.GetInstance<IClientService>();
 
         private List<GazeButtonData[]> MainMenu = new List<GazeButtonData[]> { new GazeButtonData[] {
